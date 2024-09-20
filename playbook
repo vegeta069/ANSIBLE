@@ -1,0 +1,12 @@
+---
+- name: Get serial number of <link>Cisco</link> switches
+  hosts: switch
+  gather_facts: no
+  tasks:
+    - name: Gather facts from <link>Cisco</link> switches
+      ios_facts:
+        gather_subset: hardware
+
+    - name: Display serial number
+      debug:
+        var: ansible_net_serialnum
